@@ -13,7 +13,7 @@ Repository: https://github.com/frivx/youtube-transcript-cli
 ## Installation
 
 ```bash
-npm install -g youtube-transcript-cli
+npm install -g youtubetranscriptdev-cli
 ```
 
 Then run:
