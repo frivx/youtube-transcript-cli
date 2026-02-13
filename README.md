@@ -8,7 +8,7 @@ Terminal-first CLI for extracting YouTube transcripts and working with them quic
 - browse transcript history
 - check credits and plan status
 
-Repository: https://github.com/frivxd/youtube-transcript-cli
+Repository: https://github.com/frivx/youtube-transcript-cli
 
 ## Installation
 
@@ -95,3 +95,4 @@ npm run build
 ## License
 
 MIT
+
