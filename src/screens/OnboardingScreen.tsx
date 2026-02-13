@@ -15,14 +15,13 @@ interface OnboardingScreenProps {
 }
 
 const APP_ASCII_HEADER = [
-  " __     _________ _____  _____ _____  _____ ____  ______ ",
-  " \\ \\   / /__   __/ ____|/ ____|  __ \\|_   _|  _ \\|  ____|",
-  "  \\ \\_/ /   | | | (___ | |    | |__) | | | | |_) | |__   ",
-  "   \\   /    | |  \\___ \\| |    |  _  /  | | |  _ <|  __|  ",
-  "    | |     | |  ____) | |____| | \\ \\ _| |_| |_) | |____ ",
-  "    |_|     |_| |_____/ \\_____|_|  \\_\\_____|____/|______|",
+  "Y   Y TTTTT SSSSS  CCCCC RRRR   III BBBB  EEEEE",
+  " Y Y    T   S      C     R   R   I  B   B E    ",
+  "  Y     T   SSSSS  C     RRRR    I  BBBB  EEEE ",
+  "  Y     T       S  C     R  R    I  B   B E    ",
+  "  Y     T   SSSSS  CCCCC R   R  III BBBB  EEEEE",
   "",
-  "                     YouTube Transcript CLI",
+  "            YouTube Transcript CLI",
 ];
 
 function stepLabel(step: Step): string {
