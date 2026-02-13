@@ -152,6 +152,11 @@ export default function App() {
         onUpdated={(message) => {
           setNotice({ tone: "success", message });
         }}
+        onReset={() => {
+          setNotice({ tone: "success", message: "Config reset. Run setup again." });
+          setLastNonHomeScreen(null);
+          setScreen({ name: "onboarding" });
+        }}
       />
     );
   }

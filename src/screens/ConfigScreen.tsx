@@ -11,17 +11,19 @@ import {
   getStoredAiApiKey,
   getStoredYtApiKey,
   getYtApiKey,
+  resetConfig,
   setAiApiKey,
   setAiModel,
   setYtApiKey,
 } from "../config/store.js";
 import { clearApiCache, getCredits } from "../api/transcript-api.js";
 
-type ConfigStep = "menu" | "edit_yt" | "edit_model" | "edit_ai" | "summary";
+type ConfigStep = "menu" | "edit_yt" | "edit_model" | "edit_ai" | "summary" | "confirm_reset";
 
 interface ConfigScreenProps {
   onBack: () => void;
   onUpdated?: (message: string) => void;
+  onReset?: () => void;
 }
 
 function maskKey(value: string): string {
@@ -30,7 +32,7 @@ function maskKey(value: string): string {
   return `${value.slice(0, 4)}...${value.slice(-4)}`;
 }
 
-export function ConfigScreen({ onBack, onUpdated }: ConfigScreenProps) {
+export function ConfigScreen({ onBack, onUpdated, onReset }: ConfigScreenProps) {
   const [step, setStep] = useState<ConfigStep>("menu");
   const [status, setStatus] = useState<string | null>(null);
   const [statusTone, setStatusTone] = useState<"info" | "error" | "success">("info");
@@ -60,6 +62,7 @@ export function ConfigScreen({ onBack, onUpdated }: ConfigScreenProps) {
     { label: "Replace AI model", value: "model" },
     { label: "Replace AI provider key", value: "ai" },
     { label: "View current config", value: "summary" },
+    { label: "Reset config (clear keys)", value: "reset" },
     { label: "Back", value: "back" },
   ];
 
@@ -149,6 +152,11 @@ export function ConfigScreen({ onBack, onUpdated }: ConfigScreenProps) {
                 return;
               }
 
+              if (item.value === "reset") {
+                setStep("confirm_reset");
+                return;
+              }
+
               onBack();
             }}
           />
@@ -209,6 +217,31 @@ export function ConfigScreen({ onBack, onUpdated }: ConfigScreenProps) {
           <Text>YouTubeTranscript key: <Text color={orange}>{maskKey(getStoredYtApiKey() || getYtApiKey())}</Text></Text>
           <Text>AI model: <Text color={orange}>{activeModel?.name ?? "not set"}</Text></Text>
           <Text>AI provider key: <Text color={orange}>{maskKey(getStoredAiApiKey())}</Text></Text>
+        </Panel>
+      ) : null}
+
+      {step === "confirm_reset" ? (
+        <Panel title="Reset config" variant="error">
+          <Text color={theme.muted}>
+            This will clear stored keys and model selection on this machine.
+          </Text>
+          <Box marginTop={1} />
+          <SelectInput
+            items={[
+              { label: "Yes, reset config", value: "yes" },
+              { label: "Cancel", value: "no" },
+            ]}
+            onSelect={(item) => {
+              if (item.value === "yes") {
+                resetConfig();
+                clearApiCache();
+                onUpdated?.("Config reset.");
+                onReset?.();
+                return;
+              }
+              setStep("menu");
+            }}
+          />
         </Panel>
       ) : null}
 
