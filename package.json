@@ -1,6 +1,6 @@
 {
   "name": "ytscribe-cli",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Terminal-first YouTube transcript CLI with transcription, reader, history, and AI chat.",
   "type": "module",
   "main": "dist/index.js",

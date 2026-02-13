@@ -25,7 +25,6 @@ const COMMAND_OPTIONS: CommandOption[] = [
   { command: "/transcribe", description: "Create transcript for URL or id.", requiresArg: true },
   { command: "/chat", description: "Open chat for transcript.", requiresArg: true },
   { command: "/view", description: "Open transcript reader.", requiresArg: true },
-  { command: "/list", description: "Browse transcripts and open chat/view." },
   { command: "/status", description: "Show plan and remaining credits." },
   { command: "/model", description: "Update AI model and provider key." },
   { command: "/config", description: "Run setup wizard again." },

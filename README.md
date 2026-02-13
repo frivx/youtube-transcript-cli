@@ -41,11 +41,11 @@ npx -y ytscribe-cli ytscribe
 | `/transcribe <url\|id>` | Create transcript |
 | `/chat <url\|id>` | Open transcript chat |
 | `/view <url\|id>` | Open transcript reader |
-| `/list` | Browse recent transcripts |
 | `/status` | Show plan and credits |
 | `/usage` | Alias for `/status` |
 | `/model` | Change AI model/provider key |
 | `/config` | Re-run setup wizard |
+| `/reset` | Reset local config and restart setup |
 | `/help` | Show usage hints |
 | `/quit` | Exit CLI |
 

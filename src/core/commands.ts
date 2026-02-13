@@ -7,7 +7,6 @@ export const HOME_COMMANDS: CommandDoc[] = [
   { usage: "/transcribe <url|id>", description: "Generate transcript for a video." },
   { usage: "/chat <url|id>", description: "Open transcript chat for a video." },
   { usage: "/view <url|id>", description: "Open transcript reader for a video." },
-  { usage: "/list", description: "Browse recent transcripts." },
   { usage: "/status", description: "Show current plan and credit usage." },
   { usage: "/model", description: "Change AI provider/model/key." },
   { usage: "/usage", description: "Show plan and remaining credits." },
@@ -23,7 +22,6 @@ export type ParsedHomeInput =
   | { kind: "transcribe_command"; target?: string }
   | { kind: "chat"; target?: string }
   | { kind: "view"; target?: string }
-  | { kind: "list" }
   | { kind: "model" }
   | { kind: "status" }
   | { kind: "usage" }
@@ -35,7 +33,9 @@ export type ParsedHomeInput =
 
 const COMMAND_ALIASES: Record<string, string> = {
   h: "help",
-  ls: "list",
+  // Back-compat: /list and /ls map to /view (no arg opens the recent picker).
+  ls: "view",
+  list: "view",
   c: "chat",
   v: "view",
   t: "transcribe",
@@ -69,8 +69,6 @@ export function parseHomeInput(value: string): ParsedHomeInput {
       return { kind: "help" };
     case "model":
       return { kind: "model" };
-    case "list":
-      return { kind: "list" };
     case "status":
       return { kind: "status" };
     case "usage":

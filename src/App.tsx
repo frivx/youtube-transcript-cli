@@ -47,16 +47,12 @@ export default function App() {
       case "help":
         setNotice({
           tone: "info",
-          message: "Commands: /transcribe, /chat, /view, /list, /status, /model, /config, /quit.",
+          message: "Commands: /transcribe, /chat, /view, /status, /model, /config, /reset, /quit.",
         });
         return;
       case "model":
         setNotice(null);
         setScreen({ name: "model" });
-        return;
-      case "list":
-        setNotice(null);
-        setScreen({ name: "list", mode: "view" });
         return;
       case "usage":
       case "status":
@@ -89,7 +85,7 @@ export default function App() {
       case "view": {
         const target = resolveVideoTarget(parsed.target);
         if (!target) {
-          setNotice({ tone: "info", message: "Select a transcript to view." });
+          // No target: open the recent picker.
           setScreen({ name: "list", mode: "view" });
           return;
         }
