@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { isConfigured } from "./config/store.js";
+import { isConfigured, resetConfig } from "./config/store.js";
 import { OnboardingScreen } from "./screens/OnboardingScreen.js";
 import { HomeScreen } from "./screens/HomeScreen.js";
 import { ConfigScreen } from "./screens/ConfigScreen.js";
@@ -66,6 +66,12 @@ export default function App() {
       case "config":
         setNotice(null);
         setScreen({ name: "config" });
+        return;
+      case "reset":
+        resetConfig();
+        setNotice(null);
+        setLastNonHomeScreen(null);
+        setScreen({ name: "onboarding" });
         return;
       case "quit":
         process.exit(0);

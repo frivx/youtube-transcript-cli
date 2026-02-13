@@ -15,6 +15,12 @@ export const config = new Conf({
   },
 });
 
+export function resetConfig(): void {
+  // Clears only the persisted config values. It intentionally does not delete
+  // cached transcript data or chat files.
+  config.clear();
+}
+
 export function getYtApiKey(): string {
   return (
     (config.get("ytApiKey") as string) ||

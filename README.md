@@ -13,7 +13,7 @@ Repository: https://github.com/frivx/youtube-transcript-cli
 ## Installation
 
 ```bash
-npm install -g youtubetranscriptdev-cli
+npm install -g ytscribe-cli
 ```
 
 Then run:
@@ -25,7 +25,13 @@ youtube-transcript
 Or:
 
 ```bash
-yt
+ytscribe
+```
+
+Without global install:
+
+```bash
+npx -y ytscribe-cli ytscribe
 ```
 
 ## Quick Start

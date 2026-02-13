@@ -12,6 +12,7 @@ export const HOME_COMMANDS: CommandDoc[] = [
   { usage: "/model", description: "Change AI provider/model/key." },
   { usage: "/usage", description: "Show plan and remaining credits." },
   { usage: "/config", description: "Run setup wizard again." },
+  { usage: "/reset", description: "Clear local config and restart setup." },
   { usage: "/help", description: "Show command usage tips." },
   { usage: "/quit", description: "Exit CLI." },
 ];
@@ -27,6 +28,7 @@ export type ParsedHomeInput =
   | { kind: "status" }
   | { kind: "usage" }
   | { kind: "config" }
+  | { kind: "reset" }
   | { kind: "help" }
   | { kind: "quit" }
   | { kind: "unknown"; name: string };
@@ -41,6 +43,8 @@ const COMMAND_ALIASES: Record<string, string> = {
   s: "status",
   u: "usage",
   cfg: "config",
+  r: "reset",
+  factory: "reset",
   q: "quit",
   exit: "quit",
 };
@@ -73,6 +77,8 @@ export function parseHomeInput(value: string): ParsedHomeInput {
       return { kind: "usage" };
     case "config":
       return { kind: "config" };
+    case "reset":
+      return { kind: "reset" };
     case "chat":
       return { kind: "chat", target: arg || undefined };
     case "view":

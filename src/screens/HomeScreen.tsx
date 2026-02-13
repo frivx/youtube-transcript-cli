@@ -29,6 +29,7 @@ const COMMAND_OPTIONS: CommandOption[] = [
   { command: "/status", description: "Show plan and remaining credits." },
   { command: "/model", description: "Update AI model and provider key." },
   { command: "/config", description: "Run setup wizard again." },
+  { command: "/reset", description: "Reset local config and restart setup." },
   { command: "/help", description: "Show command usage hints." },
   { command: "/quit", description: "Exit CLI." },
 ];
