@@ -1,0 +1,73 @@
+{
+  "name": "youtube-transcript-cli",
+  "version": "1.0.0",
+  "description": "Terminal-first YouTube transcript CLI with transcription, reader, history, and AI chat.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "yt": "dist/index.js",
+    "youtube-transcript": "dist/index.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frivxd/youtube-transcript-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/frivxd/youtube-transcript-cli/issues"
+  },
+  "homepage": "https://github.com/frivxd/youtube-transcript-cli#readme",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "dev": "tsx src/index.tsx",
+    "start": "node dist/index.js",
+    "prepublishOnly": "npm run typecheck && npm run build"
+  },
+  "keywords": [
+    "youtube",
+    "transcript",
+    "cli",
+    "ai",
+    "chat",
+    "terminal",
+    "ink"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.43",
+    "@ai-sdk/google": "^3.0.29",
+    "@ai-sdk/openai": "^3.0.29",
+    "ai": "^6.0.86",
+    "conf": "^11.0.0",
+    "ink": "^4.4.1",
+    "ink-select-input": "^5.0.0",
+    "ink-spinner": "^5.0.0",
+    "ink-text-input": "^5.0.0",
+    "lru-cache": "^10.4.3",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.18.0",
+    "@types/react": "^18.2.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
