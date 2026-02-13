@@ -1,6 +1,6 @@
 {
   "name": "ytscribe-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Terminal-first YouTube transcript CLI with transcription, reader, history, and AI chat.",
   "type": "module",
   "main": "dist/index.js",
@@ -13,8 +13,7 @@
   },
   "bin": {
     "ytscribe": "dist/index.js",
-    "ytscribe-cli": "dist/index.js",
-    "youtube-transcript": "dist/index.js"
+    "ytscribe-cli": "dist/index.js"
   },
   "publishConfig": {
     "access": "public"

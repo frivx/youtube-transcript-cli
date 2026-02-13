@@ -19,12 +19,6 @@ npm install -g ytscribe-cli
 Then run:
 
 ```bash
-youtube-transcript
-```
-
-Or:
-
-```bash
 ytscribe
 ```
 
