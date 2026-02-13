@@ -30,7 +30,7 @@ npx -y ytscribe-cli ytscribe
 
 ## Quick Start
 
-1. Launch CLI with `yt` or `youtube-transcript`.
+1. Launch CLI with `ytscribe`.
 2. Complete setup when prompted (API key and optional AI provider).
 3. Paste a YouTube URL on home screen, or run `/transcribe <url|id>`.
 

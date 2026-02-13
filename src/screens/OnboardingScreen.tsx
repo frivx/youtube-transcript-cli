@@ -14,12 +14,13 @@ interface OnboardingScreenProps {
   onComplete: () => void;
 }
 
-const API_KEY_ASCII_HEADER = [
-  "    _    ____ ___   _  _________   __",
-  "   / \\  |  _ \\_ _| | |/ / ____\\ \\ / /",
-  "  / _ \\ | |_) | |  | ' /|  _|  \\ V / ",
-  " / ___ \\|  __/| |  | . \\| |___  | |  ",
-  "/_/   \\_\\_|  |___| |_|\\_\\_____| |_|  ",
+const APP_ASCII_HEADER = [
+  "__   _______ ____   ____ ____  ___ ____  _____",
+  "| | / /_   _/ ___| / ___|  _ \\|_ _| __ )| ____|",
+  "| ' /  | | \\___ \\| |   | |_) || ||  _ \\|  _|  ",
+  "| . \\  | |  ___) | |___|  _ < | || |_) | |___ ",
+  "|_|\\_\\ |_| |____/ \\____|_| \\_\\___|____/|_____|",
+  "             YouTube Transcript CLI",
 ];
 
 function stepLabel(step: Step): string {
@@ -109,7 +110,7 @@ export function OnboardingScreen({ onComplete }: OnboardingScreenProps) {
     }
   };
 
-  const layoutTitle = step === "yt_key" ? API_KEY_ASCII_HEADER.join("\n") : "Setup";
+  const layoutTitle = APP_ASCII_HEADER.join("\n");
 
   return (
     <Layout title={layoutTitle} subtitle={`${stepLabel(step)}  ${stepDots(step)}`}>
