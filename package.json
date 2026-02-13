@@ -1,6 +1,6 @@
 {
   "name": "youtubetranscriptdev-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Terminal-first YouTube transcript CLI with transcription, reader, history, and AI chat.",
   "type": "module",
   "main": "dist/index.js",
@@ -71,4 +71,3 @@
     "node": ">=18"
   }
 }
-
